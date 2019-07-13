@@ -6,7 +6,9 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
   </head>
   <body>
+    @include('inc.navbar')
     <div class="container">
+      @include('inc.mensagens')
       @yield('content')
     </div>
 
