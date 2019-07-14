@@ -46,7 +46,7 @@ class TodosController extends Controller
 
         $todo->save();
 
-        return redirect('http://localhost/todolist/public')->with('success', 'Todo Criado');
+        return redirect('/')->with('success', 'Todo Criado');
     }
 
     /**
@@ -69,7 +69,8 @@ class TodosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $todo = Todo::find($id);
+        return view('todos.edit')->with('todo', $todo);
     }
 
     /**
@@ -81,7 +82,14 @@ class TodosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $todo = Todo::find($id);
+      $todo->texto = $request->input('texto');
+      $todo->corpo = $request->input('corpo');
+      $todo->vencimento = $request->input('vencimento');
+
+      $todo->save();
+
+      return redirect('/')->with('success', 'Todo Alterado');
     }
 
     /**
@@ -92,6 +100,9 @@ class TodosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $todo = Todo::find($id);
+        $todo->delete();
+
+        return redirect('/')->with('success', 'Todo Deletada');
     }
 }

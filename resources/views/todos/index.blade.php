@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-
-  <h1>Todos</h1>
+<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" >
+  <h1>ToDos</h1>
   @if(count($todos) > 0)
     @foreach ($todos as $todo)
       <div class="well">
